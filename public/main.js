@@ -1,6 +1,9 @@
 const urlParams = new URLSearchParams(window.location.search);
-const lang = urlParams.get('lang') || 'typescript';
+const language = urlParams.get('lang') || 'typescript';
 const lineNumbers = (urlParams.get('line_numbers') || 'on').toLocaleLowerCase();
+const wordWrap = (urlParams.get('word_wrap') || 'on').toLocaleLowerCase();
+const scrollbar =
+  (urlParams.get('scrollbar') || 'on').toLocaleLowerCase() === 'on';
 const codeBase64 = urlParams.get('code');
 let code = '// Start here...';
 if (codeBase64) {
@@ -10,7 +13,7 @@ if (codeBase64) {
 let editor = monaco.editor.create(document.getElementById('container'), {
   value: code,
   theme: 'vs-dark',
-  language: lang,
+  language,
   tabSize: 2,
   insertSpaces: true,
   minimap: {
@@ -20,8 +23,14 @@ let editor = monaco.editor.create(document.getElementById('container'), {
   lineNumbersMinChars: 3,
   lineDecorationsWidth: 3,
   fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
-  wordWrap: 'on',
+  wordWrap,
   automaticLayout: true,
+  scrollbar: {
+    horizontal: scrollbar ? 'auto' : 'hidden',
+    vertical: scrollbar ? 'auto' : 'hidden',
+    horizontalScrollbarSize: 8,
+    verticalScrollbarSize: 8,
+  },
 });
 
 // $.getJSON('./monaco-one-dark-pro.json', theme => {
@@ -47,17 +56,15 @@ document.addEventListener(
         editor.setSelections(selections);
       }
       editor.getAction('editor.action.formatDocument').run();
-      updateURLCode(lang, code);
+      updateURLCode(code);
     }
   },
   false,
 );
 
-function updateURLCode(lang, code) {
-  let codeBase64 = Base64.encode(code);
-
+function updateURLCode(code) {
   let url = new URL(window.location);
-  url.searchParams.set('lang', lang);
+  let codeBase64 = Base64.encode(code);
   url.searchParams.set('code', codeBase64);
   window.history.replaceState('', 'Embeddable Monaco', url);
 }
