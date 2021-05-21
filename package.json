@@ -6,7 +6,8 @@
   "license": "GPL-3.0",
   "private": true,
   "scripts": {
-    "start": "http-server public"
+    "start": "http-server public",
+    "test": "echo test"
   },
   "devDependencies": {
     "http-server": "^0.12.3"
