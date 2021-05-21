@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "repository": "https://github.com/dizys/embeddable-monaco",
   "author": "Dizy (Ziyang) <mhisf@vip.qq.com>",
-  "license": "GPL-3.0",
-  "private": true,
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "start": "http-server public",
     "test": "echo test"
