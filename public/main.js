@@ -1,9 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const language = urlParams.get('lang') || 'typescript';
-const lineNumbers = (urlParams.get('line_numbers') || 'on').toLocaleLowerCase();
-const wordWrap = (urlParams.get('word_wrap') || 'on').toLocaleLowerCase();
-const scrollbar =
-  (urlParams.get('scrollbar') || 'on').toLocaleLowerCase() === 'on';
+const lineNumbers = urlParams.get('line_numbers') || 'on';
+const wordWrap = urlParams.get('word_wrap') || 'on';
+const scrollbar = urlParams.get('scrollbar') || 'auto';
 const codeBase64 = urlParams.get('code');
 let code = '// Start here...';
 if (codeBase64) {
@@ -26,8 +25,8 @@ let editor = monaco.editor.create(document.getElementById('container'), {
   wordWrap,
   automaticLayout: true,
   scrollbar: {
-    horizontal: scrollbar ? 'auto' : 'hidden',
-    vertical: scrollbar ? 'auto' : 'hidden',
+    horizontal: scrollbar,
+    vertical: scrollbar,
     horizontalScrollbarSize: 8,
     verticalScrollbarSize: 8,
   },
