@@ -19,6 +19,7 @@ let editor = monaco.editor.create(document.getElementById('container'), {
   lineDecorationsWidth: 3,
   fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
   wordWrap: 'on',
+  automaticLayout: true,
 });
 
 // $.getJSON('./monaco-one-dark-pro.json', theme => {
