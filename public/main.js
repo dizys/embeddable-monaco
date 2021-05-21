@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const lang = urlParams.get('lang') || 'typescript';
+const lineNumbers = (urlParams.get('line_numbers') || 'on').toLocaleLowerCase();
 const codeBase64 = urlParams.get('code');
 let code = '// Start here...';
 if (codeBase64) {
@@ -15,6 +16,7 @@ let editor = monaco.editor.create(document.getElementById('container'), {
   minimap: {
     enabled: false,
   },
+  lineNumbers,
   lineNumbersMinChars: 3,
   lineDecorationsWidth: 3,
   fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
