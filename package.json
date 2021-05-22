@@ -1,8 +1,17 @@
 {
   "name": "embeddable-monaco",
-  "version": "1.0.2",
+  "version": "1.0.3",
+  "description": "Embeddable online playground using Monaco editor. Works great with Vue and Slidev!",
   "repository": "https://github.com/dizys/embeddable-monaco",
   "author": "Dizy (Ziyang) <dev@dizy.cc>",
+  "keywords": [
+    "vue",
+    "slidev",
+    "monaco",
+    "slides",
+    "playground",
+    "editor"
+  ],
   "license": "MIT",
   "private": false,
   "main": "dist/embeddable.umd.js",
