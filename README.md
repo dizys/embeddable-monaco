@@ -45,27 +45,36 @@ Use component `Embeddable` in your slides:
 
 ## Component Props
 
-- `width`: string
+**Embeddable**
+
+- `width`
+  - string
   - default: `"100%"`
-- `height`: string
+- `height`
+  - string
   - default: `"100%"`
-- `language`: string
+- `language`
+  - string
   - Language name that Monaco supports.
   - default: `"typescript"`
-- `code`: string
+- `code`
+  - string
   - Default code to be shown.
   - default: `"// Start here..."`
-- `sourceURL`: string
+- `sourceURL`
+  - string
   - Use a source URL instead of `language` and `code`. This will override `language` and `code` props.
   - Go to `https://embeddable.vercel.app/?lang=<YOUR_LANGUAGE>` and type in the code, then press `cmd/ctrl + S`. The address bar will give you this `sourceURL`.
   - e.g. `https://embeddable.vercel.app/?lang=typescript&code=Ly8gU3RhcnQgaGVyZS4uLgo%3D`
 - `lineNumbers`: `"on"` | `"off"`
   - Whether to show line numbers on the left side.
   - default: `"on"`
-- `wordWrap`: `"on"` | `"off"`
+- `wordWrap`
+  - string: `"on"` | `"off"`
   - Whether to wrap a line into new lines when it reaches the full width of the editor.
   - default: `"on"`
-- `scrollbar`: `"auto"` | `"visible"` | `"hidden"`
+- `scrollbar`
+  - string: `"auto"` | `"visible"` | `"hidden"`
   - `"auto"` shows the scrollbar when mouse hover; `"visible"` makes the scrollbar always visible; `"hidden"` always hides it.
   - default: `"auto"`
 
