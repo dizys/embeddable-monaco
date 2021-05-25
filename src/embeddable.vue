@@ -75,5 +75,8 @@ export default {
   background-color: #1e1e1e;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 </style>
