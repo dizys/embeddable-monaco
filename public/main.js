@@ -54,8 +54,12 @@ document.addEventListener(
         editor.setPosition(position);
         editor.setSelections(selections);
       }
-      editor.getAction('editor.action.formatDocument').run();
-      updateURLCode(code);
+      editor
+        .getAction('editor.action.formatDocument')
+        .run()
+        .then(() => {
+          updateURLCode(code);
+        });
     }
   },
   false,
