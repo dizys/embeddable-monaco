@@ -30,6 +30,18 @@ let editor = monaco.editor.create(document.getElementById('container'), {
     horizontalScrollbarSize: 8,
     verticalScrollbarSize: 8,
   },
+  // Suggestion-related:
+  lightbulb: {
+    enabled: true,
+  },
+  quickSuggestions: {
+    other: true,
+    comments: true,
+    strings: true,
+  },
+  acceptSuggestionOnCommitCharacter: true,
+  acceptSuggestionOnEnter: 'on',
+  accessibilitySupport: 'on',
 });
 
 // $.getJSON('./monaco-one-dark-pro.json', theme => {
